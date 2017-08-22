@@ -1,0 +1,23 @@
+## Travis CI configuration for the argparse-cpp library.
+##
+##   <https://travis-ci.org/mdklatt/argpars-cpp>
+##
+language: cpp
+
+compilter:
+  - clang
+  - gcc
+
+branches:
+  only:
+    - master
+    - dev
+
+sudo: false
+dist: trusty  # Ubuntu 14.04
+
+script:
+  - mkdir build && cd build
+  - cmake -DCMAKE_BUILD_TYPE=Debug ..
+  - cmake --build .
+  - test/test_argparse
