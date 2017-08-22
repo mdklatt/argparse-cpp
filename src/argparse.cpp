@@ -1,6 +1,6 @@
 /// Implementation of the sample library module.
 ///
-#include "module.hpp"
+#include "argparse.hpp"
 
 using argparse::SampleClass;
 

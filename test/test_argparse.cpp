@@ -4,7 +4,7 @@
 /// test runner.
 ///
 #include <gtest/gtest.h>
-#include "module.hpp"
+#include "argparse.hpp"
 
 using namespace argparse;
 

@@ -4,9 +4,14 @@
 ##
 project(test_argparse)
 
+set(TEST_FILES
+    test_argparse.cpp
+)
+
+
 add_subdirectory(lib/gtest)
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
-add_executable(${PROJECT_NAME} test_module.cpp)
+add_executable(${PROJECT_NAME} ${TEST_FILES})
 target_link_libraries(${PROJECT_NAME} argparse gtest gtest_main)
