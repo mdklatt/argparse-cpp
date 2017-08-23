@@ -5,7 +5,7 @@
 project(test_argparse)
 
 set(TEST_FILES
-    test_argparse.cpp
+    test_util.cpp
 )
 
 
