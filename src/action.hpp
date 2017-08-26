@@ -36,7 +36,7 @@ namespace argparse
         /// Construct an object.
         ///
         /// @param data storage for argument values
-        Store(ValueMap& data);
+        explicit Store(ValueMap& data);  // don't allow implicit assignment
 
         /// Execute the action.
         ///

@@ -41,21 +41,21 @@ const string& ValueMap::get(const string& key) const
 const string& ValueMap::get(const string& key, const string& value) const
 {
     const auto pos(data.lower_bound(key));
-    return pos->first == key ? pos->second.front() : value;
+    return pos != data.end() ? pos->second.front() : value;
 }
 
 
 vector<string> ValueMap::values(const string& key) const
 {
     const auto pos(data.lower_bound(key));
-    return pos->first == key ? pos->second : vector<string>();
+    return pos != data.end() ? pos->second : vector<string>();
 }
 
 
 void ValueMap::insert(const string& key, const string& value)
 {
     const auto pos(data.lower_bound(key));
-    if (pos->first == key) {
+    if (pos != data.end()) {
         // Append to existing key.
         pos->second.push_back(value);
     }
@@ -77,10 +77,9 @@ void ValueMap::insert(const string& key, const vector<string>& values)
 void ValueMap::merge(const ValueMap& other, bool append)
 {
     for (const auto& item: other.data) {
-        const string& key{item.first};
         const vector<string> values{item.second};
         const auto pos(data.lower_bound(item.first));
-        if (pos->first == key) {
+        if (pos != data.end()) {
             if (append) {
                 // Append values to existing key.
                 pos->second.reserve(pos->second.size() + values.size());
